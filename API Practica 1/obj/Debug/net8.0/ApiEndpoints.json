@@ -17,6 +17,26 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.ExerciseController",
+    "Method": "GetAllExercise",
+    "RelativePath": "api/Exercise/GetAllExercise",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DTOs.ExerciseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.ExerciseController",
     "Method": "GetExerciseById",
     "RelativePath": "api/Exercise/GetExerciseById",
     "HttpMethod": "GET",

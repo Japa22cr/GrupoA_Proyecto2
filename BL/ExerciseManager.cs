@@ -18,5 +18,11 @@ namespace BL
             return (ExerciseDto)exerciseCrud.RetrieveById(id);
         }
 
+        public List<ExerciseDto> GetAllExercise()
+        {
+            ExerciseCrudFactory exerciseCrud = new ExerciseCrudFactory();
+            return exerciseCrud.RetrieveAll<ExerciseDto>();
+        }
+
     }
 }

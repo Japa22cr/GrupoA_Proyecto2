@@ -45,5 +45,26 @@ namespace API_Practica_1.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+
+        public ActionResult<ExerciseDto> GetAllExercise()
+        {
+            try
+            {
+
+                ExerciseManager em = new ExerciseManager();
+                var exercise = em.GetAllExercise();
+                if (exercise == null)
+                {
+                    return NotFound();
+                }
+                return Ok(exercise);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

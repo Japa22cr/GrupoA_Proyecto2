@@ -51,6 +51,8 @@ namespace DataAccess.CRUD
         {
             throw new NotImplementedException();
         }
+
+
         public override BaseDto RetrieveById(int id)
         {
             SqlOperation operation = mapper.GetRetrieveByIdStatement(id);

@@ -4,6 +4,7 @@ namespace DataAccess.Dao
     public class SqlOperation
     {
         public string ProcedureName { get; set; }
+        public string Query { get; set; }
 
         public List<SqlParameter> parameters;
 

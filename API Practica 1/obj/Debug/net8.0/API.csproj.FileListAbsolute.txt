@@ -28,6 +28,7 @@ C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.AssemblyIn
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.sourcelink.json
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\staticwebassets\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props

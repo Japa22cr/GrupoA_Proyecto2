@@ -25,7 +25,19 @@ namespace DataAccess.Mapper
 
         public List<BaseDto> BuildObjects(List<Dictionary<string, object>> objectRows)
         {
-            throw new NotImplementedException();
+            List<BaseDto> exercises = new List<BaseDto>();
+
+            foreach (var row in objectRows)
+            {
+                ExerciseDto exercise = new ExerciseDto();
+                exercise.Id = Convert.ToInt32(row["Id"]);
+                exercise.Name = row["Nombre"].ToString();
+                exercise.Description = row["Descripcion"].ToString();
+
+                exercises.Add(exercise);
+            }
+
+            return exercises;
         }
 
         public SqlOperation GetCreateStatement(BaseDto entityDTO)
@@ -52,7 +64,9 @@ namespace DataAccess.Mapper
 
         public SqlOperation GetRetrieveAllStatement()
         {
-            throw new NotImplementedException();
+            SqlOperation sqlOperation = new SqlOperation();
+            sqlOperation.ProcedureName = "dbo.sp_obtenerEjercicios"; 
+            return sqlOperation;
         }
 
         public SqlOperation GetRetrieveByIdStatement(int Id)

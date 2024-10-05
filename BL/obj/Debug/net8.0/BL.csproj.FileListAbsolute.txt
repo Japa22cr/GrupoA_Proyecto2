@@ -10,6 +10,7 @@ C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.GeneratedMSBuildEditorC
 C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.AssemblyInfoInputs.cache
 C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.AssemblyInfo.cs
 C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.sourcelink.json
 C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.csproj.Up2Date
 C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\BL.dll
 C:\Users\Usuario\source\repos\API\BL\obj\Debug\net8.0\refint\BL.dll
