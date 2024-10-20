@@ -23,7 +23,6 @@ namespace API_Practica_1.Controllers
             {
                 return StatusCode(500);
             }
-
         }
 
         [HttpGet]
@@ -48,13 +47,13 @@ namespace API_Practica_1.Controllers
 
         [HttpGet]
 
-        public ActionResult<ExerciseDto> GetAllExercise()
+        public ActionResult<ExerciseDto> GetAllExercises()
         {
             try
             {
 
                 ExerciseManager em = new ExerciseManager();
-                var exercise = em.GetAllExercise();
+                var exercise = em.GetAllExercises();
                 if (exercise == null)
                 {
                     return NotFound();

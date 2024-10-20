@@ -1,10 +1,8 @@
-﻿using DataAccess.Crud;
-using DataAccess.Dao;
-using DataAccess.DAO;
-using DataAccess.Mapper;
+﻿using DataAccess.SP.DAO;
+using DataAccess.SP.Mapper;
 using DTOs;
 
-namespace DataAccess.CRUD
+namespace DataAccess.SP.CRUD
 {
     public class ExerciseCrudFactory : CrudFactory
     {

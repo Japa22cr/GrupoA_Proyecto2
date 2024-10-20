@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using DataAccess.EF;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("AuthDatabase");
+
+builder.Services.AddDbContext<ClaseDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 // Add services to the container.
 

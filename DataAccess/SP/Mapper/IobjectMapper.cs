@@ -1,6 +1,6 @@
 ﻿using DTOs;
 
-namespace DataAccess.Mapper
+namespace DataAccess.SP.Mapper
 {
     public interface IObjectMapper
     {

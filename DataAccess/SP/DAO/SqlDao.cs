@@ -1,11 +1,10 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-using DataAccess.Dao;
 
-namespace DataAccess.DAO
+namespace DataAccess.SP.DAO
 {
-    public class SqlDao 
-    { 
+    public class SqlDao
+    {
         private static SqlDao instance = new SqlDao();
         private string _connString = "Server=Lenovo\\SQLEXPRESS;Database=Proyecto2;Trusted_Connection=True";
 

@@ -1,9 +1,8 @@
-﻿using DataAccess.Dao;
-
+﻿using DataAccess.SP.DAO;
 using DTOs;
 
 
-namespace DataAccess.Mapper
+namespace DataAccess.SP.Mapper
 {
     public class ExerciseMapper : ICrudStatements, IObjectMapper
     {
@@ -65,7 +64,7 @@ namespace DataAccess.Mapper
         public SqlOperation GetRetrieveAllStatement()
         {
             SqlOperation sqlOperation = new SqlOperation();
-            sqlOperation.ProcedureName = "dbo.sp_obtenerEjercicios"; 
+            sqlOperation.ProcedureName = "dbo.sp_obtenerEjercicios";
             return sqlOperation;
         }
 

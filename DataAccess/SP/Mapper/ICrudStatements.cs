@@ -1,7 +1,7 @@
-﻿using DataAccess.Dao;
+﻿using DataAccess.SP.DAO;
 using DTOs;
 
-namespace DataAccess.Mapper
+namespace DataAccess.SP.Mapper
 {
     public interface ICrudStatements
     {

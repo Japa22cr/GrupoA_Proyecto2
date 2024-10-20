@@ -1,5 +1,5 @@
 ﻿using DataAccess;
-using DataAccess.CRUD;
+using DataAccess.SP.CRUD;
 using DTOs;
 
 namespace BL
@@ -18,7 +18,7 @@ namespace BL
             return (ExerciseDto)exerciseCrud.RetrieveById(id);
         }
 
-        public List<ExerciseDto> GetAllExercise()
+        public List<ExerciseDto> GetAllExercises()
         {
             ExerciseCrudFactory exerciseCrud = new ExerciseCrudFactory();
             return exerciseCrud.RetrieveAll<ExerciseDto>();

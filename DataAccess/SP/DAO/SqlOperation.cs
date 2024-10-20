@@ -1,5 +1,5 @@
 ﻿using System.Data.SqlClient;
-namespace DataAccess.Dao
+namespace DataAccess.SP.DAO
 {
     public class SqlOperation
     {

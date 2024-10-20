@@ -17,8 +17,8 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.ExerciseController",
-    "Method": "GetAllExercise",
-    "RelativePath": "api/Exercise/GetAllExercise",
+    "Method": "GetAllExercises",
+    "RelativePath": "api/Exercise/GetAllExercises",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

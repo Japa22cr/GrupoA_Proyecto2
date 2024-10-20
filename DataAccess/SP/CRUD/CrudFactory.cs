@@ -1,7 +1,7 @@
-﻿using DataAccess.DAO;
+﻿using DataAccess.SP.DAO;
 using DTOs;
 
-namespace DataAccess.Crud
+namespace DataAccess.SP.CRUD
 {
     public abstract class CrudFactory
     {
