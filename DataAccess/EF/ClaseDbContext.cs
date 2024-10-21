@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccess.EF.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EF
 {
-    public class ClaseDbContext: DbContext
+    public class ClaseDbContext : DbContext
     {
-        public ClaseDbContext(DbContextOptions<ClaseDbContext> options) : base(options) 
-        {
-          
-        }
+        public ClaseDbContext(DbContextOptions<ClaseDbContext> options) : base(options) { }
+           public DbSet<ApplicationUser> Users { get; set; }
+        
     }
 }
