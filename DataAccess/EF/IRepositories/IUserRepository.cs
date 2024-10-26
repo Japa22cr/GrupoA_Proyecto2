@@ -10,7 +10,7 @@ namespace DataAccess.EF.IRepositories
 {
     public interface IUserRepository
     {
-        Task AddUser(ApplicationUser user);
-        Task<List<ApplicationUser>> GetAllUsers();
+        //Task AddUser(ApplicationUser user);
+        //Task<List<ApplicationUser>> GetAllUsers();
     }
 }

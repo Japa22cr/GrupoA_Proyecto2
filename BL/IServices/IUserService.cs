@@ -9,7 +9,7 @@ namespace BL.IServices
 {
     public interface IUserService
     {
-        Task AddUser(ApplicationUser user);
-        Task<List<ApplicationUser>> GetAllUsers();
+        //Task AddUser(ApplicationUser user);
+        //Task<List<ApplicationUser>> GetAllUsers();
     }
 }

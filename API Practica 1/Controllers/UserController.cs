@@ -24,7 +24,7 @@ namespace API_Practica_1.Controllers
                 try
                 {
 
-                    await _userService.AddUser(user);
+                    //await _userService.AddUser(user);
                     return Ok();
                 }
                 catch
@@ -33,17 +33,17 @@ namespace API_Practica_1.Controllers
                 }
             }
 
-            [HttpGet]
-            public async Task<ActionResult<List<ApplicationUser>>> GetAllUsers()
-            {
-                try
-                {
-                    return await _userService.GetAllUsers();
-                }
-                catch
-                {
-                    throw;
-                }
-            }
+            //[HttpGet]
+            //public async Task<ActionResult<List<ApplicationUser>>> GetAllUsers()
+            //{
+            //    try
+            //    {
+            //    return await _userService.GetAllUsers();
+            //}
+            //catch
+            //    {
+            //        throw;
+            //    }
+            //}
         }
 }
