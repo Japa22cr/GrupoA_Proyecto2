@@ -44,6 +44,9 @@ C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Microsoft.Open
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\SendGrid.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\StarkbankEcdsa.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

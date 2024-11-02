@@ -1,4 +1,5 @@
-﻿using DataAccess.EF.Models;
+﻿using BL.IServices;
+using DataAccess.EF.Models;
 using DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,13 @@ namespace API_Practica_1.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly IEmailService _emailService;
 
-        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration)
+        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, IEmailService emailService)
         {
             _userManager = userManager;
             _configuration = configuration;
+            _emailService = emailService;
         }
 
         [HttpPost]
@@ -130,6 +133,52 @@ namespace API_Practica_1.Controllers
             return BadRequest("No se pudo agregar el rol de Admin al usuario");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return Ok("");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetUrl = $"{model.ResetUrl}?token={Uri.EscapeDataString(token)}&email={user.Email}";
+
+            await _emailService.SendResetPasswordEmail(user.Email, resetUrl);
+
+            return Ok("Email Sent succesfully");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return BadRequest("Invalid email.");
+            }
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
+            {
+                return Ok("Password has been reset successfully. ");
+            }
+            return BadRequest("Failed to reset password.");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GenerateResetToken([FromBody] string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest("Invalid email.");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return Ok(new { Token = token });
+        }
 
     }
+
 }

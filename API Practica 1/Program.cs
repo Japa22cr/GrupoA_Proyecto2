@@ -20,6 +20,9 @@ builder.Services.AddDbContext<ClaseDbContext>(options =>
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
 
 // Add Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
