@@ -17,10 +17,10 @@ namespace BL.Services
             var apikey = _configuration["SendGrid:ApiKey"];
             var fromEmail = _configuration["SendGrid:FromEmail"];
             var client = new SendGridClient(apikey);
-            var from = new EmailAddress(fromEmail, "Forgot Password");
+            var from = new EmailAddress("ugaldelenin@outlook.es", "Transito Inteligente");
             var subject = "Recuperacion de Contrasena";
             var to = new EmailAddress(email);
-            var plainTextContent = $"Haga click aqui para reestablecer su contrasena: {resetUrl}";
+            var plainTextContent = $"Haga click aqui para reestablecer su contrasena:<br><br>  {resetUrl}";
             var htmlContent = $"<strong>Haga click aqui para reestablecer su contrasena:</strong> <a href='{resetUrl}'>Reestablecer Contrasena</a> ";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);

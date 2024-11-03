@@ -11,6 +11,17 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        policy => policy.WithOrigins("http://localhost:5173")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
+
+
+
 var connectionString = builder.Configuration.GetConnectionString("AuthDatabase");
 
 builder.Services.AddDbContext<ClaseDbContext>(options =>
@@ -80,6 +91,11 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"Error during database initialization: {ex.Message}");
     }
 }
+
+
+// Enable CORS
+app.UseCors("AllowSpecificOrigin");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

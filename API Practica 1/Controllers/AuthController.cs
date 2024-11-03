@@ -143,7 +143,7 @@ namespace API_Practica_1.Controllers
             }
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var resetUrl = $"{model.ResetUrl}?token={Uri.EscapeDataString(token)}&email={user.Email}";
+            var resetUrl = $"{model.ResetUrl}?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email)}";
 
             await _emailService.SendResetPasswordEmail(user.Email, resetUrl);
 
