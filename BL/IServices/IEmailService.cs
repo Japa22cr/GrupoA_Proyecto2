@@ -8,6 +8,9 @@ namespace BL.IServices
 {
     public interface IEmailService
     {
+        Task SendEmailAsync(string email, string subject, string message);
         Task SendResetPasswordEmail(string email, string resetLink);
+
+
     }
 }

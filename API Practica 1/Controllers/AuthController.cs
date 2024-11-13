@@ -31,6 +31,30 @@ namespace API_Practica_1.Controllers
             var user = await _userManager.FindByNameAsync(userData.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, userData.Password))
             {
+                var code = new Random().Next(1000, 9999).ToString();
+
+                user.SecurityStamp = code;
+
+                await _userManager.UpdateAsync(user);
+
+                await _emailService.SendEmailAsync(user.Email, "Autenticacion de Doble Factor", "Su Codigo de seguridad es: ");
+
+                return Ok(new { message = "2FA code sent to your email." });
+            }
+            return Unauthorized();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyCode([FromBody] TwoFactorDto model)
+        {
+            var user = await _userManager.FindByNameAsync(model.UserName);
+            if (user != null && user.SecurityStamp == model.Code)
+            {
+                // Clear the code after verification
+                user.SecurityStamp = null;
+                await _userManager.UpdateAsync(user);
+
+                // Generate JWT token
                 var token = await GenerateJwtToken(user);
                 return Ok(new { token });
             }
@@ -77,7 +101,10 @@ namespace API_Practica_1.Controllers
             var user = new ApplicationUser
             {
                 UserName = newUser.UserName,
-                Email = newUser.Email
+                Email = newUser.Email,
+                FirstName = newUser.FirstName,
+                LastName = newUser.LastName,
+                IdDocument = newUser.IdDocument
             };
 
             var createdUserResult = await _userManager.CreateAsync(user, newUser.Password);

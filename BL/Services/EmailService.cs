@@ -8,10 +8,31 @@ namespace BL.Services
     public class EmailService: IEmailService
     {
         private readonly IConfiguration _configuration;
+        private object _sendGridClient;
+
         public EmailService(IConfiguration configuration) 
         {
             _configuration = configuration;
         }
+
+        public async Task SendEmailAsync(string email, string subject, string message)
+        {
+
+            var apikey = _configuration["SendGrid:ApiKey"];
+            var client = new SendGridClient(apikey);
+            var msg = new SendGridMessage()
+            {
+                From = new EmailAddress("ugaldelenin@outlook.es", "Transito Inteligente"),
+                Subject = subject,
+                PlainTextContent = message,
+                HtmlContent = $"<strong>{message}</strong>"
+            };
+            msg.AddTo(new EmailAddress(email));
+
+            var response = await client.SendEmailAsync(msg);
+        }
+
+
         public async Task SendResetPasswordEmail(string email, string resetUrl) 
         {
             var apikey = _configuration["SendGrid:ApiKey"];
@@ -39,5 +60,6 @@ namespace BL.Services
                 Console.WriteLine($"{header.Key}: {string.Join(", ", header.Value)}");
             }
         }
+
     }
 }

@@ -14,13 +14,29 @@ namespace DataAccess.EF
 {
     public class ClaseDbContext : IdentityDbContext<IdentityUser>
     {
-        public ClaseDbContext(DbContextOptions<ClaseDbContext> options) : base(options) { }
-        //public DbSet<ApplicationUser> Users { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
+        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Fine> Fines { get; set; }
+        public ClaseDbContext(DbContextOptions<ClaseDbContext> options) : base(options) 
+        { 
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Fine>()
+            .Property(f => f.Amount)
+            .HasColumnType("decimal(18,2)");
+
+            builder.Entity<Vehicle>()
+               .HasOne(v => v.User)
+               .WithMany(u => u.Vehicles)
+               .HasForeignKey(v => v.UserId);
+
+            builder.Entity<Fine>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Fines)
+                .HasForeignKey(f => f.UserId);
+        }
     }
 }

@@ -122,6 +122,22 @@
     ]
   },
   {
+    "ContainingType": "API_Practica_1.Controllers.AuthController",
+    "Method": "VerifyCode",
+    "RelativePath": "api/Auth/VerifyCode",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DTOs.TwoFactorDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Practica_1.Controllers.ExerciseController",
     "Method": "AddExercise",
     "RelativePath": "api/Exercise/AddExercise",
