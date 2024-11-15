@@ -18,11 +18,11 @@ namespace BL.Services
         public async Task SendEmailAsync(string email, string subject, string message)
         {
 
-            var apikey = _configuration["SendGrid:ApiKey"];
+            var apikey = _configuration["SendGrid:ApiKey2"];
             var client = new SendGridClient(apikey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("ugaldelenin@outlook.es", "Transito Inteligente"),
+                From = new EmailAddress("transitointeligentecr@gmail.com", "Transito Inteligente"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = $"<strong>{message}</strong>"

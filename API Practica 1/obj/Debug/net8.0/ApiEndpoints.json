@@ -200,6 +200,22 @@
     ]
   },
   {
+    "ContainingType": "API_Practica_1.Controllers.FinesController",
+    "Method": "AddFine",
+    "RelativePath": "api/Fines",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DTOs.FineDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Practica_1.Controllers.UserController",
     "Method": "AddUser",
     "RelativePath": "api/User/AddUser",
