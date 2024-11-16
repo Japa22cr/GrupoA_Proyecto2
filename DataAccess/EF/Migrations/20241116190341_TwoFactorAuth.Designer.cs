@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ClaseDbContext))]
-    [Migration("20241109213127_UpdateIdentitySchema")]
-    partial class UpdateIdentitySchema
+    [Migration("20241116190341_TwoFactorAuth")]
+    partial class TwoFactorAuth
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -303,6 +303,13 @@ namespace DataAccess.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TwoFactorCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("TwoFactorExpiry")
+                        .HasColumnType("datetime2");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

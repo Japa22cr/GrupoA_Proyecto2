@@ -216,6 +216,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_Practica_1.Controllers.FinesController",
+    "Method": "GetFinesByUser",
+    "RelativePath": "api/Fines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userin",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Practica_1.Controllers.UserController",
     "Method": "AddUser",
     "RelativePath": "api/User/AddUser",

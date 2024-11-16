@@ -3,6 +3,7 @@ using DataAccess.EF;
 using DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_Practica_1.Controllers
 {
@@ -58,6 +59,52 @@ namespace API_Practica_1.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetFinesByUser(string userin)
+        {
+            // Validar el parámetro de correo electrónico
+            if (string.IsNullOrEmpty(userin))
+            {
+                return BadRequest("El usuario es requerido.");
+            }
+
+            // Buscar al usuario por correo electrónico
+            var user = await _userManager.FindByNameAsync(userin);
+            if (user == null)
+            {
+                return NotFound("No se ha encontrado un usuario.");
+            }
+
+            try
+            {
+                // Obtener todas las multas asociadas al usuario
+                var fines = await _context.Fines
+                    .Where(f => f.UserId == user.Id)
+                    .Select(f => new
+                    {
+                        f.Id,
+                        f.Amount,
+                        f.Description,
+                        f.IssuedDate
+                    })
+                    .ToListAsync();
+
+                // Verificar si el usuario tiene multas
+                if (!fines.Any())
+                {
+                    return NotFound("No se encuentra ninguna multa.");
+                }
+
+                return Ok(fines);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores que puedan ocurrir durante la consulta
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
 
 
     }

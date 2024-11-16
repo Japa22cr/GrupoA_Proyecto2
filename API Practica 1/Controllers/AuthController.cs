@@ -28,16 +28,20 @@ namespace API_Practica_1.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto userData)
         {
-            var user = await _userManager.FindByNameAsync(userData.UserName);
+            var user = await _userManager.FindByNameAsync(userData.UserName) as ApplicationUser;
             if (user != null && await _userManager.CheckPasswordAsync(user, userData.Password))
             {
+                // Generate a secure 2FA code
                 var code = new Random().Next(1000, 9999).ToString();
 
-                user.SecurityStamp = code;
+                // Store the code in the user record with an expiry time
+                user.TwoFactorCode = code;
+                user.TwoFactorExpiry = DateTime.UtcNow.AddMinutes(5); // Code valid for 5 minutes
 
                 await _userManager.UpdateAsync(user);
 
-                await _emailService.SendEmailAsync(user.Email, "Autenticacion de Doble Factor", "Su Codigo de seguridad es: ");
+                // Send the code via email
+                await _emailService.SendEmailAsync(user.Email, "Autenticacion de Doble Factor", $"Su Codigo de seguridad es: {code}");
 
                 return Ok(new { message = "2FA code sent to your email." });
             }
@@ -47,16 +51,24 @@ namespace API_Practica_1.Controllers
         [HttpPost]
         public async Task<IActionResult> VerifyCode([FromBody] TwoFactorDto model)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
-            if (user != null && user.SecurityStamp == model.Code)
+            var user = await _userManager.FindByNameAsync(model.UserName) as ApplicationUser;
+            if (user != null)
             {
-                // Clear the code after verification
-                user.SecurityStamp = null;
-                await _userManager.UpdateAsync(user);
+                // Check if the code matches and is not expired
+                if (user.TwoFactorCode == model.Code && user.TwoFactorExpiry > DateTime.UtcNow)
+                {
+                    // Clear the 2FA code after verification
+                    user.TwoFactorCode = null;
+                    user.TwoFactorExpiry = null;
+                    await _userManager.UpdateAsync(user);
 
-                // Generate JWT token
-                var token = await GenerateJwtToken(user);
-                return Ok(new { token });
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var userRole = roles.FirstOrDefault() ?? "User";
+
+                    // Generate JWT token
+                    var jwToken = await GenerateJwtToken(user);
+                    return Ok(new { username = user.UserName, role = userRole, token = jwToken });
+                }
             }
             return Unauthorized();
         }
