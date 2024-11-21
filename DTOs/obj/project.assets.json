@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ON\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ON\\Desktop\\Repos\\Proyecto2_3C_2024\\GrupoA_Proyecto2\\Practica1\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
       "projectName": "DTOs",
-      "projectPath": "C:\\Users\\ON\\Desktop\\Repos\\Proyecto2_3C_2024\\GrupoA_Proyecto2\\Practica1\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
-      "packagesPath": "C:\\Users\\ON\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ON\\Desktop\\Repos\\Proyecto2_3C_2024\\GrupoA_Proyecto2\\Practica1\\GrupoA_Proyecto2\\DTOs\\obj\\",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ON\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
