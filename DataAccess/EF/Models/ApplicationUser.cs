@@ -14,6 +14,9 @@ namespace DataAccess.EF.Models
         [Required]
         public string IdDocument { get; set; }
 
+        public string TwoFactorCode { get; set; }
+        public DateTime? TwoFactorExpiry { get; set; }
+
         public ICollection<Vehicle> Vehicles { get; set; }
         public ICollection<Fine> Fines { get; set; }
 
