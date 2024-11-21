@@ -1,6 +1,7 @@
 ﻿using BL.IServices;
 using DataAccess.EF.Models;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -21,10 +22,10 @@ namespace API_Practica_1.Controllers
         public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, IEmailService emailService)
         {
             _userManager = userManager;
-            _configuration = configuration;
-            _emailService = emailService;
+            _configuration = configuration;            _emailService = emailService;
         }
 
+        [HttpPost]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto userData)
         {
@@ -134,6 +135,47 @@ namespace API_Practica_1.Controllers
 
             return BadRequest(ModelState);
         }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")] // Only Admins can access this method
+        public async Task<IActionResult> InternalRegister([FromBody] InternalRegisterDto newUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (newUser.Role != "User" && newUser.Role != "Judge" && newUser.Role != "Officer" && newUser.Role != "Admin")
+            {
+                return BadRequest("Invalid role specified");
+            }
+
+            var user = new ApplicationUser
+            {
+                UserName = newUser.UserName,
+                Email = newUser.Email,
+                FirstName = newUser.FirstName,
+                LastName = newUser.LastName,
+                IdDocument = newUser.IdDocument
+            };
+
+            var createdUserResult = await _userManager.CreateAsync(user, newUser.Password);
+
+            if (createdUserResult.Succeeded)
+            {
+                // Assign the specified role
+                await _userManager.AddToRoleAsync(user, newUser.Role);
+                return Created("Usuario creado exitosamente", null);
+            }
+
+            foreach (var error in createdUserResult.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            return BadRequest(ModelState);
+        }
+
 
         [HttpGet]
         public async Task<bool> RoleTesting(string userName)

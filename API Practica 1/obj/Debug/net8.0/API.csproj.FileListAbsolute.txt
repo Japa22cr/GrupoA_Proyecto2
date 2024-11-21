@@ -1,5 +1,9 @@
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\appsettings.json
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\x86\leptonica-1.82.0.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\x86\tesseract50.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\x64\leptonica-1.82.0.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\x64\tesseract50.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\API.exe
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\API.deps.json
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\API.runtimeconfig.json
@@ -65,6 +69,7 @@ C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\System.Runtime
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\Tesseract.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
