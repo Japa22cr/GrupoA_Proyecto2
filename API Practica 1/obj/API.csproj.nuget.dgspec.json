@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\API Practica 1\\API.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\API Practica 1\\API.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\API Practica 1\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\API Practica 1\\API.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\API.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\API Practica 1\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,14 +29,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\BL\\BL.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\BL\\BL.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj"
               },
-              "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj"
               }
             }
           }
@@ -106,14 +106,14 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\BL\\BL.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\BL\\BL.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\BL\\BL.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\BL\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -131,11 +131,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj"
               }
             }
           }
@@ -180,14 +180,14 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -205,8 +205,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj"
               }
             }
           }
@@ -283,14 +283,14 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

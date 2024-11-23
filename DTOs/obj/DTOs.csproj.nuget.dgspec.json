@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

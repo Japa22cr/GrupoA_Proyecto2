@@ -1,15 +1,3 @@
-C:\Users\Usuario\source\repos\API\DTOs\bin\Debug\net8.0\DTOs.deps.json
-C:\Users\Usuario\source\repos\API\DTOs\bin\Debug\net8.0\DTOs.dll
-C:\Users\Usuario\source\repos\API\DTOs\bin\Debug\net8.0\DTOs.pdb
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfoInputs.cache
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfo.cs
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.csproj.CoreCompileInputs.cache
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.sourcelink.json
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.dll
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\refint\DTOs.dll
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.pdb
-C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\ref\DTOs.dll
 C:\Users\ON\Desktop\Repos\Proyecto2_3C_2024\GrupoA_Proyecto2\Practica1\GrupoA_Proyecto2\DTOs\bin\Debug\net8.0\DTOs.deps.json
 C:\Users\ON\Desktop\Repos\Proyecto2_3C_2024\GrupoA_Proyecto2\Practica1\GrupoA_Proyecto2\DTOs\bin\Debug\net8.0\DTOs.dll
 C:\Users\ON\Desktop\Repos\Proyecto2_3C_2024\GrupoA_Proyecto2\Practica1\GrupoA_Proyecto2\DTOs\bin\Debug\net8.0\DTOs.pdb

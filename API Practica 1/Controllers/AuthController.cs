@@ -4,6 +4,7 @@ using DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -18,11 +19,14 @@ namespace API_Practica_1.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, IEmailService emailService)
+        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, IEmailService emailService, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
-            _configuration = configuration;            _emailService = emailService;
+            _configuration = configuration;            
+            _emailService = emailService;
+            _roleManager = roleManager;
         }
 
         [HttpPost]
@@ -74,7 +78,7 @@ namespace API_Practica_1.Controllers
             return Unauthorized();
         }
 
-        private async Task<string> GenerateJwtToken(IdentityUser user)
+        private async Task<string> GenerateJwtToken(ApplicationUser user)
         {
             var roles = await _userManager.GetRolesAsync(user);  // Retrieve the roles for the user
             var claims = new List<Claim>
@@ -137,7 +141,6 @@ namespace API_Practica_1.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")] // Only Admins can access this method
         public async Task<IActionResult> InternalRegister([FromBody] InternalRegisterDto newUser)
         {
             if (!ModelState.IsValid)
@@ -145,11 +148,14 @@ namespace API_Practica_1.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (newUser.Role != "User" && newUser.Role != "Judge" && newUser.Role != "Officer" && newUser.Role != "Admin")
+            // Validate role
+            var validRoles = new[] { "User", "Judge", "Officer", "Admin" };
+            if (!validRoles.Contains(newUser.Role))
             {
                 return BadRequest("Invalid role specified");
             }
 
+            // Create a new user
             var user = new ApplicationUser
             {
                 UserName = newUser.UserName,
@@ -161,34 +167,66 @@ namespace API_Practica_1.Controllers
 
             var createdUserResult = await _userManager.CreateAsync(user, newUser.Password);
 
-            if (createdUserResult.Succeeded)
+            if (!createdUserResult.Succeeded)
             {
-                // Assign the specified role
-                await _userManager.AddToRoleAsync(user, newUser.Role);
-                return Created("Usuario creado exitosamente", null);
+                foreach (var error in createdUserResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return BadRequest(ModelState);
             }
 
-            foreach (var error in createdUserResult.Errors)
+            // Check if role exists before assigning
+            var roleExists = await _roleManager.RoleExistsAsync(newUser.Role); // Requires RoleManager<T> injection
+            if (!roleExists)
             {
-                ModelState.AddModelError(string.Empty, error.Description);
+                // Cleanup: Delete the user since the role assignment is invalid
+                await _userManager.DeleteAsync(user);
+                return BadRequest($"The role '{newUser.Role}' does not exist.");
             }
 
-            return BadRequest(ModelState);
+            // Assign the role
+            var roleResult = await _userManager.AddToRoleAsync(user, newUser.Role);
+            if (!roleResult.Succeeded)
+            {
+                // Cleanup: Delete the user since role assignment failed
+                await _userManager.DeleteAsync(user);
+
+                foreach (var error in roleResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return BadRequest(ModelState);
+            }
+
+            // Return success response
+            return CreatedAtAction(nameof(InternalRegister), new { id = user.Id }, new
+            {
+                message = "Usuario creado exitosamente",
+                userId = user.Id,
+                userName = user.UserName,
+                role = newUser.Role
+            });
         }
 
 
         [HttpGet]
-        public async Task<bool> RoleTesting(string userName)
+        public async Task<IActionResult> GetUserRoles(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
             if (user == null)
             {
-                // El usuario no existe
-                return false;
+                return NotFound("User not found");
             }
 
-            var result = await _userManager.IsInRoleAsync(user, "Admin");
-            return result;
+            var roles = await _userManager.GetRolesAsync(user);
+
+            if (roles == null || !roles.Any())
+            {
+                return Ok("User has no assigned roles");
+            }
+
+            return Ok(roles); // Return the roles as a list of strings
         }
 
         [HttpGet]
@@ -259,6 +297,55 @@ namespace API_Practica_1.Controllers
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             return Ok(new { Token = token });
         }
+
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllUsers()
+        //{
+        //    try
+        //    {
+        //        // Fetch all users' IDs (efficient way to get list of user IDs without fetching full user data)
+        //        var userIds = await _userManager.Users.Select(u => u.Id).ToListAsync();
+
+        //        var filteredUsers = new List<object>();
+
+        //        foreach (var userId in userIds)
+        //        {
+        //            // Fetch the user by ID
+        //            var user = await _userManager.FindByIdAsync(userId);
+
+        //            if (user != null)
+        //            {
+        //                var roles = await _userManager.GetRolesAsync(user); // Get roles of the user
+
+        //                if (!roles.Contains("Admin"))
+        //                {
+        //                    filteredUsers.Add(new
+        //                    {
+        //                        user.UserName,
+        //                        user.Email,
+        //                        user.FirstName, // Accessing custom properties
+        //                        user.LastName,
+        //                        Role = roles
+        //                    });
+        //                }
+        //            }
+        //        }
+
+        //        // Check if there are any users after filtering
+        //        if (filteredUsers.Count == 0)
+        //        {
+        //            return NotFound("No users found.");
+        //        }
+
+        //        return Ok(filteredUsers);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Handle any exceptions that occur
+        //        return StatusCode(500, $"Internal server error: {ex.Message}");
+        //    }
+        //}
+
 
     }
 

@@ -17,7 +17,7 @@ namespace DataAccess.EF
             context.Database.EnsureCreated();
 
             // Crear roles si no existen
-            string[] roleNames = { "Admin", "User", "Manager" };
+            string[] roleNames = { "User", "Judge", "Officer", "Admin" };
             foreach (var roleName in roleNames)
             {
                 if (!await roleManager.RoleExistsAsync(roleName))
@@ -30,7 +30,7 @@ namespace DataAccess.EF
             var adminUser = new ApplicationUser
             {
                 UserName = "admin",
-                Email = "admin"
+                Email = "lenin.ugalde21@gmail.com"
             };
 
             string adminPassword = "Password123!";
