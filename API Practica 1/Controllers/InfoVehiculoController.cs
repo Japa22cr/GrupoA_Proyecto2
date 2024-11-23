@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTOs;
 
-
 namespace API_Practica_1.Controllers
 {
     [ApiController]
@@ -22,20 +21,20 @@ namespace API_Practica_1.Controllers
                 return BadRequest("La información del vehículo no puede ser nula.");
 
             Vehiculos.Add(vehiculo);
-            return CreatedAtAction(nameof(ObtenerVehiculo), new { vin = vehiculo.VIN }, vehiculo);
+            return CreatedAtAction(nameof(ObtenerVehiculo), new { placa = vehiculo.NumeroPlaca }, vehiculo);
         }
 
         /// <summary>
-        /// Obtiene un vehículo por su VIN.
+        /// Obtiene un vehículo por su número de placa.
         /// </summary>
-        /// <param name="vin">Número de VIN</param>
+        /// <param name="placa">Número de placa</param>
         /// <returns>Información del vehículo</returns>
-        [HttpGet("{vin}")]
-        public ActionResult<Vehiculo> ObtenerVehiculo(string vin)
+        [HttpGet("{placa}")]
+        public ActionResult<Vehiculo> ObtenerVehiculo(string placa)
         {
-            var vehiculo = Vehiculos.FirstOrDefault(v => v.VIN == vin);
+            var vehiculo = Vehiculos.FirstOrDefault(v => v.NumeroPlaca == placa);
             if (vehiculo == null)
-                return NotFound($"El vehículo con VIN {vin} no fue encontrado.");
+                return NotFound($"El vehículo con número de placa {placa} no fue encontrado.");
 
             return Ok(vehiculo);
         }
