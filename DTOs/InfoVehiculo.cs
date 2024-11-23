@@ -8,7 +8,7 @@ namespace DTOs
 {
     public class Vehiculo
     {
-        public string VIN { get; set; } 
+  
         public string NumeroMotor { get; set; } 
         public int CantidadPuertas { get; set; } 
         public string Color { get; set; } 
