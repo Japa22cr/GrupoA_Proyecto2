@@ -298,53 +298,51 @@ namespace API_Practica_1.Controllers
             return Ok(new { Token = token });
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllUsers()
-        //{
-        //    try
-        //    {
-        //        // Fetch all users' IDs (efficient way to get list of user IDs without fetching full user data)
-        //        var userIds = await _userManager.Users.Select(u => u.Id).ToListAsync();
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            try
+            {
+                // Fetch all users' IDs (efficient way to get list of user IDs without fetching full user data)
+                var userIds = await _userManager.Users.Select(u => u.Id).ToListAsync();
 
-        //        var filteredUsers = new List<object>();
+                var filteredUsers = new List<object>();
 
-        //        foreach (var userId in userIds)
-        //        {
-        //            // Fetch the user by ID
-        //            var user = await _userManager.FindByIdAsync(userId);
+                foreach (var userId in userIds)
+                {
+                    // Fetch the user by ID
+                    var user = await _userManager.FindByIdAsync(userId);
 
-        //            if (user != null)
-        //            {
-        //                var roles = await _userManager.GetRolesAsync(user); // Get roles of the user
+                    if (user != null)
+                    {
+                        var roles = await _userManager.GetRolesAsync(user); // Get roles of the user
 
-        //                if (!roles.Contains("Admin"))
-        //                {
-        //                    filteredUsers.Add(new
-        //                    {
-        //                        user.UserName,
-        //                        user.Email,
-        //                        user.FirstName, // Accessing custom properties
-        //                        user.LastName,
-        //                        Role = roles
-        //                    });
-        //                }
-        //            }
-        //        }
+                        if (!roles.Contains("Admin"))
+                        {
+                            filteredUsers.Add(new
+                            {
+                                user.UserName,
+                                user.Email,
+                                Role = roles
+                            });
+                        }
+                    }
+                }
 
-        //        // Check if there are any users after filtering
-        //        if (filteredUsers.Count == 0)
-        //        {
-        //            return NotFound("No users found.");
-        //        }
+                // Check if there are any users after filtering
+                if (filteredUsers.Count == 0)
+                {
+                    return NotFound("No users found.");
+                }
 
-        //        return Ok(filteredUsers);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Handle any exceptions that occur
-        //        return StatusCode(500, $"Internal server error: {ex.Message}");
-        //    }
-        //}
+                return Ok(filteredUsers);
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
 
     }
