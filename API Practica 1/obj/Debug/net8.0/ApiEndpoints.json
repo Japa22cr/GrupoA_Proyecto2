@@ -292,58 +292,6 @@
   {
     "ContainingType": "API_Practica_1.Controllers.VehiculosController",
     "Method": "ObtenerVehiculo",
-    "RelativePath": "api/Vehiculos/{vin}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "vin",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "DTOs.Vehiculo",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "API_Practica_1.Controllers.VehiculosController",
-    "Method": "RegistrarVehiculo",
-    "RelativePath": "api/Vehiculos",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "vehiculo",
-        "Type": "DTOs.Vehiculo",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "DTOs.Vehiculo",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "API_Practica_1.Controllers.VehiculosController",
-    "Method": "ObtenerVehiculo",
     "RelativePath": "api/Vehiculos/{placa}",
     "HttpMethod": "GET",
     "IsController": true,
