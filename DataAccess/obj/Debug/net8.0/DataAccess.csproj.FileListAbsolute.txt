@@ -34,3 +34,21 @@ C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\r
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.pdb
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.genruntimeconfig.cache
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\bin\Debug\net8.0\DataAccess.deps.json
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\bin\Debug\net8.0\DataAccess.runtimeconfig.json
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\bin\Debug\net8.0\DataAccess.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\bin\Debug\net8.0\DataAccess.pdb
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\bin\Debug\net8.0\DTOs.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\bin\Debug\net8.0\DTOs.pdb
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.AssemblyInfo.cs
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.sourcelink.json
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.csproj.Up2Date
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\refint\DataAccess.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.pdb
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\DataAccess.genruntimeconfig.cache
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
