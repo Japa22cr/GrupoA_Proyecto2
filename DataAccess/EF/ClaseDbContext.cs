@@ -16,6 +16,9 @@ namespace DataAccess.EF
     {
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Fine> Fines { get; set; }
+        public DbSet<Dispute> Disputes { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+
         public ClaseDbContext(DbContextOptions<ClaseDbContext> options) : base(options) 
         { 
         }
@@ -25,8 +28,8 @@ namespace DataAccess.EF
             base.OnModelCreating(builder);
 
             builder.Entity<Fine>()
-            .Property(f => f.Amount)
-            .HasColumnType("decimal(18,2)");
+                .Property(f => f.Amount)
+                .HasColumnType("decimal(18,2)");
 
             builder.Entity<Vehicle>()
                .HasOne(v => v.User)
@@ -37,6 +40,30 @@ namespace DataAccess.EF
                 .HasOne(f => f.User)
                 .WithMany(u => u.Fines)
                 .HasForeignKey(f => f.UserId);
+
+            builder.Entity<Dispute>()
+                .HasOne(d => d.User) 
+                .WithMany()
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Dispute>()
+                .HasOne(d => d.Judge)
+                .WithMany()
+                .HasForeignKey(d => d.JudgeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Payment>()
+                 .HasOne(p => p.Fine)
+                 .WithOne(f => f.Payment)
+                 .HasForeignKey<Payment>(p => p.FineId)
+                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Payment>()
+                .HasOne(p => p.User)
+                .WithMany()
+                .HasForeignKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
