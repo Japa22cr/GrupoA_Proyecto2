@@ -30,7 +30,6 @@ namespace API_Practica_1.Controllers
         }
 
         [HttpPost]
-        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto userData)
         {
             var user = await _userManager.FindByNameAsync(userData.UserName) as ApplicationUser;
@@ -342,6 +341,34 @@ namespace API_Practica_1.Controllers
                 // Handle any exceptions that occur
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUserInfo(string username)
+        {
+            // Find user by username
+            var user = await _userManager.FindByNameAsync(username);
+
+            // If user is not found, return 404
+            if (user == null)
+            {
+                return NotFound($"User with username {username} not found.");
+            }
+
+            // Return user information, excluding sensitive data (e.g., password)
+            var userInfo = new
+            {
+                user.Id,
+                user.UserName,
+                user.Email,
+                //user.FirstName, // Add additional properties based on your ApplicationUser model
+                //user.LastName
+                //user.
+                // You can also include roles, claims, etc., if needed
+                
+            };
+
+            return Ok(userInfo);
         }
 
 

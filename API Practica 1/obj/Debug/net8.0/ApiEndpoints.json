@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.AuthController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/Auth/GetUserInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.AuthController",
     "Method": "GetUserRoles",
     "RelativePath": "api/Auth/GetUserRoles",
     "HttpMethod": "GET",
