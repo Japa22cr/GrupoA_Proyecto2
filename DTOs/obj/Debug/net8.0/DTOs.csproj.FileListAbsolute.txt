@@ -22,3 +22,15 @@ C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.dl
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\refint\DTOs.dll
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.pdb
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\ref\DTOs.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\bin\Debug\net8.0\DTOs.deps.json
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\bin\Debug\net8.0\DTOs.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\bin\Debug\net8.0\DTOs.pdb
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfoInputs.cache
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfo.cs
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.csproj.CoreCompileInputs.cache
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.sourcelink.json
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\refint\DTOs.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.pdb
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\ref\DTOs.dll
