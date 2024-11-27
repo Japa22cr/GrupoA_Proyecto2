@@ -331,12 +331,12 @@ C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8.0\API.pdb
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8.0\ref\API.dll
-C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\x64\leptonica-1.82.0.dll
-C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\x64\tesseract50.dll
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\appsettings.json
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\x86\leptonica-1.82.0.dll
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\x86\tesseract50.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\x64\leptonica-1.82.0.dll
+C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\x64\tesseract50.dll
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\API.exe
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\API.deps.json
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\bin\Debug\net8.0\API.runtimeconfig.json
