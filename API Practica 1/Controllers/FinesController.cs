@@ -39,16 +39,10 @@ namespace API_Practica_1.Controllers
             // Create a new Fine record
             var fine = new Fine
             {
-                Inspector = model.Inspector,
+                Amount = model.Amount,
+                Description = model.Description,
                 IssuedDate = DateTime.UtcNow,
-                UserId = user.Id, // Associate fine with the found user's Id
-                Place = model.Place,
-                LicensePlate = model.LicensePlate,
-                Category = model.Category,
-                Article = model.Article,
-                Description = model.Description,    
-                Conduct = model.Conduct,
-                Amount = model.Amount
+                UserId = user.Id // Associate fine with the found user's Id
             };
 
             try
@@ -90,15 +84,9 @@ namespace API_Practica_1.Controllers
                     .Select(f => new
                     {
                         f.Id,
-                        f.IssuedDate,
-                        f.Inspector,
-                        f.Place,
-                        f.LicensePlate,
-                        f.Category,
-                        f.Article,
+                        f.Amount,
                         f.Description,
-                        f.Conduct,
-                        f.Amount
+                        f.IssuedDate
                     })
                     .ToListAsync();
 
