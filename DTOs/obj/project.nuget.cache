@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Tr0QNXMoDrk=",
+  "dgSpecHash": "U1iYDdPO9CA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Documents\\GitHub\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kevin Torres\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\Kevin Torres\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\Kevin Torres\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }
