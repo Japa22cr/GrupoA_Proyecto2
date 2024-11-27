@@ -34,3 +34,4 @@ C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.dll
 C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\refint\DTOs.dll
 C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\DTOs.pdb
 C:\Users\Usuario\source\repos\API\DTOs\obj\Debug\net8.0\ref\DTOs.dll
+C:\Users\Usuario\Documents\GitHub\GrupoA_Proyecto2\DTOs\obj\Debug\net8.0\DTOs.csproj.AssemblyReference.cache
