@@ -238,6 +238,73 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_Practica_1.Controllers.FotosController",
+    "Method": "CrearPerfil",
+    "RelativePath": "api/Fotos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cedula",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nacionalidad",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Correo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoPerfil",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoCedula",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoPerfilBase64",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoCedulaBase64",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.FotosController",
+    "Method": "ObtenerPerfil",
+    "RelativePath": "api/Fotos/{cedula}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cedula",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Practica_1.Controllers.LecturaPlaca",
     "Method": "Upload",
     "RelativePath": "api/LecturaPlaca",
