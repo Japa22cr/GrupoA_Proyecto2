@@ -10,10 +10,10 @@ namespace DTOs
     {
         public string PaymentId { get; set; }         // Unique identifier for the payment request
         public decimal Amount { get; set; }          // Amount to be paid
-        public string Currency { get; set; }         // Currency code (e.g., "USD", "EUR")
-        public string CustomerId { get; set; }       // Unique identifier for the customer
-        public string PaymentMethod { get; set; }    // Payment method (e.g., "CreditCard", "PayPal")
-        public string Description { get; set; }      // Description of the transaction
+        // public string Currency { get; set; }         // Currency code (e.g., "USD", "EUR")
+        public string FineId { get; set; }       // Unique identifier for the customer
+        // public string PaymentMethod { get; set; }    // Payment method (e.g., "CreditCard", "PayPal")
+        // public string Description { get; set; }      // Description of the transaction
         public DateTime PaymentDate { get; set; }    // Date and time of the payment request
     }
 
