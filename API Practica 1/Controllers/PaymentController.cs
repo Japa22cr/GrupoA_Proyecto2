@@ -28,7 +28,7 @@ namespace API_Practica_1.Controllers
                 Status = "Success",     // successful payment status
                 TransactionId = Guid.NewGuid().ToString(), // Generate a unique transaction ID
                 Amount = paymentRequest.Amount,
-                Currency = paymentRequest.Currency,
+                //Currency = paymentRequest.Currency,
                 Message = "Payment processed successfully.",
                 ProcessedDate = DateTime.UtcNow
             };
