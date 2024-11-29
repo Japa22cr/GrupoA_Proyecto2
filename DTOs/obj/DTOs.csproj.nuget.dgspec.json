@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {}
+    "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
+    "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\obj\\",
+        "projectPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj",
+        "packagesPath": "C:\\Users\\Kevin Torres\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kevin Torres\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +45,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
