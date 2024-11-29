@@ -4907,19 +4907,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin Torres\\.nuget\\packages\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\API Practica 1\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\API Practica 1\\API.csproj",
-      "packagesPath": "C:\\Users\\Kevin Torres\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\API Practica 1\\obj\\",
+      "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\API.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\source\\repos\\API\\API Practica 1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kevin Torres\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4934,14 +4934,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\BL\\BL.csproj": {
-              "projectPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\BL\\BL.csproj"
+            "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\BL\\BL.csproj"
             },
-            "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj": {
-              "projectPath": "C:\\Users\\Kevin Torres\\OneDrive\\Escritorio\\Ingeniería de Software\\Proyecto Ingeniería de Software 2\\Proyecto\\GrupoA_Proyecto2\\DTOs\\DTOs.csproj"
+            "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\API\\DTOs\\DTOs.csproj"
             }
           }
         }
@@ -5007,7 +5007,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
