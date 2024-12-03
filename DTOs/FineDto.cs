@@ -8,8 +8,23 @@ namespace DTOs
 {
     public class FineDto
     {
-        public decimal Amount { get; set; }
-        public string Description { get; set; }
+
+        public string Inspector { get; set; }
+
         public string UserEmail { get; set; }
+
+        public string Place { get; set; }
+
+        public string LicensePlate { get; set; }
+
+        public string Category { get; set; }
+
+        public string Article { get; set; }
+
+        public string Description { get; set; }
+
+        public string Conduct { get; set; }
+
+        public decimal Amount { get; set; }
     }
 }

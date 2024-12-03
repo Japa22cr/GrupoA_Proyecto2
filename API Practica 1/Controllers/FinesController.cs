@@ -39,10 +39,16 @@ namespace API_Practica_1.Controllers
             // Create a new Fine record
             var fine = new Fine
             {
-                Amount = model.Amount,
-                Description = model.Description,
+                Inspector = model.Inspector,
                 IssuedDate = DateTime.UtcNow,
-                UserId = user.Id // Associate fine with the found user's Id
+                UserId = user.Id, // Associate fine with the found user's Id
+                Place = model.Place,
+                LicensePlate = model.LicensePlate,
+                Category = model.Category,
+                Article = model.Article,
+                Description = model.Description,
+                Conduct = model.Conduct,
+                Amount = model.Amount
             };
 
             try
@@ -59,6 +65,7 @@ namespace API_Practica_1.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetFinesByUser(string userin)
