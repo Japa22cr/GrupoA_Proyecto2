@@ -12,11 +12,14 @@ namespace DataAccess.EF.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public string LicensePlate { get; set; }
+        public string UserName { get; set; }
+        public string Marca { get; set; }
+        public int CantidadPuertas { get; set; }
+        public string Color { get; set; }
 
         [Required]
-        public string Model { get; set; }
+        public string NumeroPlaca { get; set; }
+        public string TipoVehiculo { get; set; }
 
         // Foreign key to ApplicationUser
         public string UserId { get; set; }

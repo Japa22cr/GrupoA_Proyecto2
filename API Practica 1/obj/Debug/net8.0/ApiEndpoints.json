@@ -33,6 +33,16 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.AuthController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Auth/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.AuthController",
     "Method": "GetUserRoles",
     "RelativePath": "api/Auth/GetUserRoles",
     "HttpMethod": "GET",
@@ -337,66 +347,36 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_Practica_1.Controllers.UserController",
-    "Method": "GetAllUsers",
-    "RelativePath": "api/User/GetAllUsers",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API_Practica_1.Controllers.VehiculosController",
-    "Method": "RegistrarVehiculo",
-    "RelativePath": "api/Vehiculos",
+    "ContainingType": "API_Practica_1.Controllers.VehiclesController",
+    "Method": "AddVehicle",
+    "RelativePath": "api/Vehicles",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "vehiculo",
-        "Type": "DTOs.Vehiculo",
+        "Name": "model",
+        "Type": "DTOs.VehicleDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DTOs.Vehiculo",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "API_Practica_1.Controllers.VehiculosController",
-    "Method": "ObtenerVehiculo",
-    "RelativePath": "api/Vehiculos/{placa}",
+    "ContainingType": "API_Practica_1.Controllers.VehiclesController",
+    "Method": "GerVehiclesByUser",
+    "RelativePath": "api/Vehicles",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "placa",
+        "Name": "userin",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DTOs.Vehiculo",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "API_Practica_1.Controllers.WeatherForecastController",
