@@ -25,19 +25,45 @@ namespace DataAccess.EF
                     await roleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
-
-            // Crear un usuario de ejemplo y asignar rol
-            var adminUser = new ApplicationUser
+            // Define base users
+            var baseUsers = new List<(string UserName, string Email, string Password, string Role)>
             {
-                UserName = "admin",
-                Email = "lenin.ugalde21@gmail.com"
+                ("admin", "lenin.ugalde21@gmail.com", "Password123!", "Admin"),
+                ("moka", "mokacris22@gmail.com", "Password123!", "Judge"),
+                ("kroxz", "kylekroxz@gmail.com", "Password123!", "Officer"),
+                ("ugalde", "ugaldelenin500@gmail.com", "Password123!", "User")
             };
 
-            string adminPassword = "Password123!";
-            var adminResult = await userManager.CreateAsync(adminUser, adminPassword);
-            if (adminResult.Succeeded)
+            // Create each user
+            foreach (var (userName, email, password, role) in baseUsers)
             {
-                await userManager.AddToRoleAsync(adminUser, "Admin");
+                // Check if user already exists
+                var existingUser = await userManager.FindByNameAsync(userName);
+                if (existingUser == null)
+                {
+                    // Create new user
+                    var newUser = new ApplicationUser
+                    {
+                        UserName = userName,
+                        Email = email,
+                        EmailConfirmed = true // Optionally set email as confirmed
+                    };
+
+                    var createResult = await userManager.CreateAsync(newUser, password);
+                    if (createResult.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(newUser, role);
+                    }
+                    else
+                    {
+                        // Log any errors during user creation
+                        Console.WriteLine($"Failed to create user {userName}: {string.Join(", ", createResult.Errors.Select(e => e.Description))}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"User {userName} already exists.");
+                }
             }
         }
 

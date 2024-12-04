@@ -1,34 +1,32 @@
-﻿  using DataAccess.EF.Models;
+﻿using BL.IServices;
 using DataAccess.EF;
+using DataAccess.EF.Models;
 using DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Azure.Core;
-using BL.IServices;
-using BL.Services;
 
 namespace API_Practica_1.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PaymentController : ControllerBase
+    public class DisputesController: ControllerBase
     {
-
         private readonly ClaseDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailService _emailService;
 
-        public PaymentController(ClaseDbContext context, UserManager<IdentityUser> userManager, IEmailService emailService)
+        public DisputesController(ClaseDbContext context, UserManager<IdentityUser> userManager, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;
             _emailService = emailService;
         }
 
-        // Pay Fine 
+        // Dispute Fine
+
         [HttpPost]
-        public async Task<IActionResult> PayFine([FromBody] PaymentRequestDto model)
+        public async Task<IActionResult> DisputeFine([FromBody] DisputeDto model)
         {
             if (!ModelState.IsValid)
             {
@@ -37,8 +35,6 @@ namespace API_Practica_1.Controllers
 
             try
             {
- 
-                // Retrieve the fine from the database
                 var fine = await _context.Fines.Include(f => f.Payment).FirstOrDefaultAsync(f => f.Id.Equals(model.FineId));
 
                 if (fine == null)
@@ -53,20 +49,17 @@ namespace API_Practica_1.Controllers
 
                 var user = await _userManager.FindByIdAsync(fine.UserId);
 
-                // Create the payment
-                var payment = new Payment
+                var dispute = new Dispute
                 {
                     FineId = fine.Id,
                     UserId = user.Id,
-                    Amount = model.Amount,
-                    PaymentMethod = model.PaymentMethod,
-                    PaymentDate = DateTime.UtcNow
+                    Reason = model.Reason,
+                    CreatedDate = DateTime.UtcNow
                 };
 
-                _context.Payments.Add(payment);
+                _context.Disputes.Add(dispute);
 
-                // Update fine status
-                fine.PaymentId = payment.Id;
+                fine.DisputeId = dispute.Id;
 
                 fine.Estado = true;
 
@@ -79,12 +72,46 @@ namespace API_Practica_1.Controllers
             }
             catch (Exception ex)
             {
-                // Handle exception and log
                 return StatusCode(500, "An error occurred while processing the payment.");
             }
         }
 
-        // Get Payments by user. 
+        // Handle Dispute
+
+        // Get All Disputes
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllDisputes()
+        {
+            try
+            {
+                // Obtener todas las multas asociadas al usuario
+                var disputes = await _context.Disputes
+                    .Select(d => new
+                    {
+                        d.Id,
+                        d.Fine,
+                        d.CreatedDate,
+                        d.Reason,
+                        d.IsResolved,
+                        d.User
+                    })
+                    .ToListAsync();
+
+                // Verificar si el usuario tiene multas
+                if (!disputes.Any())
+                {
+                    return NotFound("No se encuentraron ninguna disputa.");
+                }
+
+                return Ok(disputes);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores que puedan ocurrir durante la consulta
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
     }
 }

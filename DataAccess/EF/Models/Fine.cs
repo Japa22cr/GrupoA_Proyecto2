@@ -45,7 +45,7 @@ namespace DataAccess.EF.Models
         public Payment Payment { get; set; }
 
         // Property to track if no further action is allowed
-        public bool IsFinalized => Dispute != null || Payment != null;
+        public bool Estado { get; set; }
     }
 }
 

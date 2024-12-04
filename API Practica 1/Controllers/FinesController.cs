@@ -20,6 +20,8 @@ namespace API_Practica_1.Controllers
             _userManager = userManager;
         }
 
+        // Add Fine
+
         [HttpPost]
         public async Task<IActionResult> AddFine([FromBody] FineDto model)
         {
@@ -67,6 +69,9 @@ namespace API_Practica_1.Controllers
         }
 
 
+
+        // Get Fines by user
+
         [HttpGet]
         public async Task<IActionResult> GetFinesByUser(string userin)
         {
@@ -91,9 +96,16 @@ namespace API_Practica_1.Controllers
                     .Select(f => new
                     {
                         f.Id,
-                        f.Amount,
+                        f.IssuedDate,
+                        f.Inspector,
+                        f.Place,
+                        f.LicensePlate,
+                        f.Category,
+                        f.Article,
                         f.Description,
-                        f.IssuedDate
+                        f.Conduct,
+                        f.Amount,
+                        f.Estado
                     })
                     .ToListAsync();
 
@@ -111,8 +123,6 @@ namespace API_Practica_1.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-
 
     }
 }

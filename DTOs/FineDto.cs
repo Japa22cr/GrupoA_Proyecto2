@@ -26,5 +26,7 @@ namespace DTOs
         public string Conduct { get; set; }
 
         public decimal Amount { get; set; }
+
+        public bool Estado { get; set; }
     }
 }

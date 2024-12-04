@@ -154,66 +154,20 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_Practica_1.Controllers.ExerciseController",
-    "Method": "AddExercise",
-    "RelativePath": "api/Exercise/AddExercise",
+    "ContainingType": "API_Practica_1.Controllers.DisputesController",
+    "Method": "DisputeFine",
+    "RelativePath": "api/Disputes",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "exercise",
-        "Type": "DTOs.ExerciseDto",
+        "Name": "model",
+        "Type": "DTOs.DisputeDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API_Practica_1.Controllers.ExerciseController",
-    "Method": "GetAllExercises",
-    "RelativePath": "api/Exercise/GetAllExercises",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "DTOs.ExerciseDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "API_Practica_1.Controllers.ExerciseController",
-    "Method": "GetExerciseById",
-    "RelativePath": "api/Exercise/GetExerciseById",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "DTOs.ExerciseDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "API_Practica_1.Controllers.FinesController",
@@ -332,14 +286,14 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.PaymentController",
-    "Method": "ProcessPayment",
+    "Method": "PayFine",
     "RelativePath": "api/Payment",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paymentRequest",
+        "Name": "model",
         "Type": "DTOs.PaymentRequestDto",
         "IsRequired": true
       }
@@ -377,26 +331,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API_Practica_1.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[API_Practica_1.WeatherForecast, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

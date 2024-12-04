@@ -13,7 +13,7 @@ namespace DataAccess.EF.Models
         public int Id { get; set; }
 
         [Required]
-        public int FineId { get; set; } // Foreign key to Fine
+        public int FineId { get; set; }
         [ForeignKey("FineId")]
         public Fine Fine { get; set; }
 

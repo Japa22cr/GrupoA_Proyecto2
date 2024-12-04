@@ -500,13 +500,6 @@ C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingen
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8.0\API.pdb
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Kevin Torres\OneDrive\Escritorio\Ingeniería de Software\Proyecto Ingeniería de Software 2\Proyecto\GrupoA_Proyecto2\API Practica 1\obj\Debug\net8.0\ref\API.dll
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.csproj.AssemblyReference.cache
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.AssemblyInfoInputs.cache
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.AssemblyInfo.cs
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.csproj.CoreCompileInputs.cache
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.sourcelink.json
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\appsettings.json
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\x86\leptonica-1.82.0.dll
@@ -654,6 +647,14 @@ C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\DTOs.dll
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\BL.pdb
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\DataAccess.pdb
 C:\Users\Usuario\source\repos\API\API Practica 1\bin\Debug\net8.0\DTOs.pdb
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\API.sourcelink.json
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Usuario\source\repos\API\API Practica 1\obj\Debug\net8.0\staticwebassets\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props

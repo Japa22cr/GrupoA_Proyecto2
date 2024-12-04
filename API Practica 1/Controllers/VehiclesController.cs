@@ -40,6 +40,8 @@ namespace API_Practica_1.Controllers
             var vehicle = new Vehicle
             {
                 UserName = model.UserName,
+                UserId = user.Id,
+                Marca = model.Marca,
                 NumeroPlaca = model.NumeroPlaca,
                 CantidadPuertas = model.CantidadPuertas,
                 Color = model.Color,
@@ -85,6 +87,7 @@ namespace API_Practica_1.Controllers
                     .Select(v => new
                     {
                         v.Id,
+                        v.Marca,
                         v.CantidadPuertas,
                         v.Color,
                         v.NumeroPlaca,

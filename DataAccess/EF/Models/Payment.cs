@@ -14,8 +14,7 @@ namespace DataAccess.EF.Models
 
         [Required]
         public int FineId { get; set; } // Foreign key to Fine
-        [ForeignKey("FineId")]
-        public Fine Fine { get; set; }
+        [ForeignKey("FineId")]        public Fine Fine { get; set; }
 
         [Required]
         public string UserId { get; set; } // User who made the payment
