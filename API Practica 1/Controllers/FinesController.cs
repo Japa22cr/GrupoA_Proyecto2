@@ -71,7 +71,6 @@ namespace API_Practica_1.Controllers
 
 
         // Get Fines by user
-
         [HttpGet]
         public async Task<IActionResult> GetFinesByUser(string userin)
         {

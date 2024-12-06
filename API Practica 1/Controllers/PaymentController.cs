@@ -85,6 +85,58 @@ namespace API_Practica_1.Controllers
         }
 
         // Get Payments by user. 
+        [HttpGet]
+        public async Task<IActionResult> GetPaymentByUser(string userin)
+        {
+            // Validar el parámetro de correo electrónico
+            if (string.IsNullOrEmpty(userin))
+            {
+                return BadRequest("El usuario es requerido.");
+            }
 
+            // Buscar al usuario por correo electrónico
+            var user = await _userManager.FindByNameAsync(userin);
+            if (user == null)
+            {
+                return NotFound("No se ha encontrado un usuario.");
+            }
+
+            try
+            {
+                // Obtener todas las multas asociadas al usuario
+                var payments = await _context.Payments
+                    .Where(p => p.UserId == user.Id)
+                    .Select(p => new
+                    {
+                        p.Id,
+                        Fine = new {
+                            p.Fine.Id,
+                            p.Fine.Category,
+                            p.Fine.Article,
+                            p.Fine.Conduct,
+                            p.Fine.Estado,
+                            p.Fine.Amount,
+                        },
+                        p.Amount,
+                        p.PaymentMethod,
+                        p.PaymentDate,
+
+                    })
+                    .ToListAsync();
+
+                // Verificar si el usuario tiene multas
+                if (!payments.Any())
+                {
+                    return NotFound("No se encontraron pagos.");
+                }
+
+                return Ok(payments);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores que puedan ocurrir durante la consulta
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

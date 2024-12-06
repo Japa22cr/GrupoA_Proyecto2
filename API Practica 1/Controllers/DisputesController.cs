@@ -24,8 +24,7 @@ namespace API_Practica_1.Controllers
         }
 
         // Dispute Fine
-
-        [HttpPost]
+        [HttpPost("dispute-fine")]
         public async Task<IActionResult> DisputeFine([FromBody] DisputeDto model)
         {
             if (!ModelState.IsValid)
@@ -68,18 +67,60 @@ namespace API_Practica_1.Controllers
                 // Send confirmation email
                 //await _emailService.SendConfirmationEmailAsync(user.UserEmail, fine, payment);
 
-                return Ok(new { Message = "Fine paid successfully." });
+                return Ok(new { Message = "Fine disputed successfully." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An error occurred while processing the payment.");
+                return StatusCode(500, "An error occurred while processing the dispute.");
             }
         }
 
         // Handle Dispute
+        [HttpPost("handle-dispute")]
+        public async Task<IActionResult> HandleDispute([FromBody] HandleDisputeDto model)
+        {
+
+            try
+            {
+                var dispute = await _context.Disputes
+                   .Include(d => d.Fine)
+                   .Include(d => d.User)
+                   .FirstOrDefaultAsync(d => d.Id == model.DisputeId);
+
+                if (dispute == null)
+                {
+                    throw new ArgumentException("Dispute not found.");
+                }
+
+                if (dispute.IsResolved)
+                {
+                    throw new InvalidOperationException("Dispute is already resolved.");
+                }
+
+                // Update the dispute properties
+                dispute.Resolution = model.Resolution;
+                dispute.ResolutionDate = DateTime.UtcNow;
+                dispute.IsResolved = true;
+                dispute.JudgeId = model.JudgeId;
+
+                // Update the database
+                _context.Disputes.Update(dispute);
+                await _context.SaveChangesAsync();
+
+
+                // Send confirmation email
+                //await _emailService.SendConfirmationEmailAsync(user.UserEmail, fine, payment);
+
+                return Ok(new { Message = "Fine disputed successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing the dispute.");
+            }
+
+        }
 
         // Get All Disputes
-
         [HttpGet]
         public async Task<IActionResult> GetAllDisputes()
         {
@@ -93,8 +134,21 @@ namespace API_Practica_1.Controllers
                         d.Fine,
                         d.CreatedDate,
                         d.Reason,
+                        User = new
+                        {
+                            d.User.Id,
+                            d.User.UserName,
+                            d.User.Email
+                        },
                         d.IsResolved,
-                        d.User
+                        Judge = new
+                        {
+                            d.Judge.Id,
+                            d.Judge.UserName,
+                            d.Judge.Email 
+                        },
+                        d.Resolution,
+                        d.ResolutionDate
                     })
                     .ToListAsync();
 

@@ -155,8 +155,18 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.DisputesController",
-    "Method": "DisputeFine",
+    "Method": "GetAllDisputes",
     "RelativePath": "api/Disputes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.DisputesController",
+    "Method": "DisputeFine",
+    "RelativePath": "api/Disputes/dispute-fine",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -164,6 +174,22 @@
       {
         "Name": "model",
         "Type": "DTOs.DisputeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.DisputesController",
+    "Method": "HandleDispute",
+    "RelativePath": "api/Disputes/handle-dispute",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DTOs.HandleDisputeDto",
         "IsRequired": true
       }
     ],
@@ -296,6 +322,22 @@
         "Name": "model",
         "Type": "DTOs.PaymentRequestDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.PaymentController",
+    "Method": "GetPaymentByUser",
+    "RelativePath": "api/Payment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userin",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

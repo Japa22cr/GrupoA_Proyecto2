@@ -25,12 +25,12 @@ namespace DataAccess.EF.Models
         [Required]
         public string Reason { get; set; } // Reason for the dispute
 
-        public string Resolution { get; set; } // Admin-provided resolution, if any
+        public string? Resolution { get; set; } // Admin-provided resolution, if any
         public DateTime? ResolutionDate { get; set; } // Date of resolution
         public bool IsResolved { get; set; } // Status of the dispute
 
         // Added property for judge user
-        public string JudgeId { get; set; } // Admin user who resolved the dispute
+        public string? JudgeId { get; set; } // Admin user who resolved the dispute
         [ForeignKey("JudgeId")]
         public ApplicationUser Judge { get; set; }
 
