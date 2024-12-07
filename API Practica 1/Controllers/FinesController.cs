@@ -4,6 +4,8 @@ using DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BL.Services;
+using BL.IServices;
 
 namespace API_Practica_1.Controllers
 {
@@ -13,15 +15,16 @@ namespace API_Practica_1.Controllers
     {
         private readonly ClaseDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IEmailService _emailService;
 
-        public FinesController(ClaseDbContext context, UserManager<IdentityUser> userManager)
+        public FinesController(ClaseDbContext context, UserManager<IdentityUser> userManager, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;
+            _emailService = emailService;
         }
 
         // Add Fine
-
         [HttpPost]
         public async Task<IActionResult> AddFine([FromBody] FineDto model)
         {
@@ -59,6 +62,12 @@ namespace API_Practica_1.Controllers
                 _context.Fines.Add(fine);
                 await _context.SaveChangesAsync();
 
+                // Send confirmation email for the officer
+                await _emailService.SendFineConfirmationEmailOfficer(user.Email, fine);
+
+                // Send fine alert to the user
+                await _emailService.SendFineAlertEmailUser(user.Email, fine);
+
                 return Ok("Fine added successfully.");
             }
             catch (Exception ex)
@@ -92,6 +101,45 @@ namespace API_Practica_1.Controllers
                 // Obtener todas las multas asociadas al usuario
                 var fines = await _context.Fines
                     .Where(f => f.UserId == user.Id)
+                    .Select(f => new
+                    {
+                        f.Id,
+                        f.IssuedDate,
+                        f.Inspector,
+                        f.Place,
+                        f.LicensePlate,
+                        f.Category,
+                        f.Article,
+                        f.Description,
+                        f.Conduct,
+                        f.Amount,
+                        f.Estado
+                    })
+                    .ToListAsync();
+
+                // Verificar si el usuario tiene multas
+                if (!fines.Any())
+                {
+                    return NotFound("No se encuentra ninguna multa.");
+                }
+
+                return Ok(fines);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores que puedan ocurrir durante la consulta
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        // Get All Fines 
+        [HttpGet("get-all-fines")]
+        public async Task<IActionResult> GetAllFines()
+        {
+            try
+            {
+                // Obtener todas las multas asociadas al usuario
+                var fines = await _context.Fines
                     .Select(f => new
                     {
                         f.Id,

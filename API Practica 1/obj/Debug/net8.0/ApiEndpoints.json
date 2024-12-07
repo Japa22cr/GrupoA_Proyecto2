@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.AuthController",
+    "Method": "GetProfile",
+    "RelativePath": "api/Auth/GetProfile/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userin",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.AuthController",
     "Method": "GetUserRoles",
     "RelativePath": "api/Auth/GetUserRoles",
     "HttpMethod": "GET",
@@ -114,9 +130,44 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newUser",
-        "Type": "DTOs.LogUpDto",
-        "IsRequired": true
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdDocument",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "DocumentPicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -155,12 +206,18 @@
   },
   {
     "ContainingType": "API_Practica_1.Controllers.DisputesController",
-    "Method": "GetAllDisputes",
+    "Method": "GetDisputesUser",
     "RelativePath": "api/Disputes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "userin",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -177,6 +234,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.DisputesController",
+    "Method": "GetAllDisputes",
+    "RelativePath": "api/Disputes/get-all-disputes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -225,6 +292,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.FinesController",
+    "Method": "GetAllFines",
+    "RelativePath": "api/Fines/get-all-fines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -343,6 +420,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_Practica_1.Controllers.PaymentController",
+    "Method": "GetAllPayments",
+    "RelativePath": "api/Payment/get-all-payments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Practica_1.Controllers.VehiclesController",
     "Method": "AddVehicle",
     "RelativePath": "api/Vehicles",
@@ -370,6 +457,22 @@
         "Name": "userin",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Practica_1.Controllers.VehiclesController",
+    "Method": "GetVehicleByPlate",
+    "RelativePath": "api/Vehicles/by-plate/{plateNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "plateNumber",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

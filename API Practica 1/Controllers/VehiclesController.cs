@@ -23,43 +23,44 @@ namespace API_Practica_1.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVehicle([FromBody] VehicleDto model)
         {
-            // Validate the request body
-            if (model == null || string.IsNullOrEmpty(model.UserName))
+            // Validar que el modelo no sea nulo
+            if (model == null)
             {
-                return BadRequest("Invalid request data.");
+                return BadRequest("Datos inválidos en la solicitud.");
             }
-
-            // Find the user by email
-            var user = await _userManager.FindByNameAsync(model.UserName);
-            if (user == null)
+            string userId = null;
+            // Si se proporciona UserName, buscar el usuario
+            if (!string.IsNullOrEmpty(model.UserName))
             {
-                return BadRequest("User not found.");
+                var user = await _userManager.FindByNameAsync(model.UserName);
+                if (user == null)
+                {
+                    return BadRequest("Usuario no encontrado.");
+                }
+                userId = user.Id; // Asignar el ID del usuario si se encuentra
             }
-
-            // Create a new Fine record
+            // Crear el vehículo
             var vehicle = new Vehicle
             {
-                UserName = model.UserName,
-                UserId = user.Id,
-                Marca = model.Marca,
+                UserName = model.UserName, // Esto puede ser nulo si no se proporcionó
+                UserId = userId,          // También puede ser nulo
                 NumeroPlaca = model.NumeroPlaca,
                 CantidadPuertas = model.CantidadPuertas,
                 Color = model.Color,
                 TipoVehiculo = model.TipoVehiculo,
+                Marca = model.Marca
             };
-
             try
             {
-                // Add the Fine to the database
+                // Agregar el vehículo a la base de datos
                 _context.Vehicles.Add(vehicle);
                 await _context.SaveChangesAsync();
-
-                return Ok("Vehicle added successfully.");
+                return Ok("Vehículo agregado con éxito.");
             }
             catch (Exception ex)
             {
-                // Handle any errors that might occur during database save
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                // Manejar errores durante la operación
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
 
@@ -71,14 +72,12 @@ namespace API_Practica_1.Controllers
             {
                 return BadRequest("El usuario es requerido.");
             }
-
             // Buscar al usuario por correo electrónico
             var user = await _userManager.FindByNameAsync(userin);
             if (user == null)
             {
                 return NotFound("No se ha encontrado un usuario.");
             }
-
             try
             {
                 // Obtener todas las multas asociadas al usuario
@@ -87,21 +86,18 @@ namespace API_Practica_1.Controllers
                     .Select(v => new
                     {
                         v.Id,
-                        v.Marca,
                         v.CantidadPuertas,
                         v.Color,
                         v.NumeroPlaca,
-                        v.TipoVehiculo
-
+                        v.TipoVehiculo,
+                        v.Marca
                     })
                     .ToListAsync();
-
                 // Verificar si el usuario tiene multas
                 if (!vehicles.Any())
                 {
                     return NotFound("No se encuentra ninguna multa.");
                 }
-
                 return Ok(vehicles);
             }
             catch (Exception ex)
@@ -111,5 +107,41 @@ namespace API_Practica_1.Controllers
             }
         }
 
+        [HttpGet("by-plate/{plateNumber}")]
+        public async Task<IActionResult> GetVehicleByPlate(string plateNumber)
+        {
+            // Validar que el número de placa no sea nulo o vacío
+            if (string.IsNullOrEmpty(plateNumber))
+            {
+                return BadRequest("El número de placa es requerido.");
+            }
+            try
+            {
+                // Buscar el vehículo por número de placa
+                var vehicle = await _context.Vehicles
+                    .Where(v => v.NumeroPlaca == plateNumber)
+                    .Select(v => new VehicleDto
+                    {
+                        UserName = v.UserName,
+                        Marca = v.Marca,
+                        CantidadPuertas = v.CantidadPuertas,
+                        Color = v.Color,
+                        NumeroPlaca = v.NumeroPlaca,
+                        TipoVehiculo = v.TipoVehiculo
+                    })
+                    .FirstOrDefaultAsync();
+                // Verificar si el vehículo existe
+                if (vehicle == null)
+                {
+                    return NotFound("No se encontró ningún vehículo con ese número de placa.");
+                }
+                return Ok(vehicle);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores durante la consulta
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
     }
 }

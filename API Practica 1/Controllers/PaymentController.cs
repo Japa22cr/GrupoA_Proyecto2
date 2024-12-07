@@ -1,4 +1,4 @@
-﻿  using DataAccess.EF.Models;
+﻿using DataAccess.EF.Models;
 using DataAccess.EF;
 using DTOs;
 using Microsoft.AspNetCore.Identity;
@@ -73,7 +73,7 @@ namespace API_Practica_1.Controllers
                 await _context.SaveChangesAsync();
 
                 // Send confirmation email
-                //await _emailService.SendConfirmationEmailAsync(user.UserEmail, fine, payment);
+                await _emailService.SendPaymentConfirmationEmail(user.Email, fine, payment);
 
                 return Ok(new { Message = "Fine paid successfully." });
             }
@@ -110,6 +110,49 @@ namespace API_Practica_1.Controllers
                     {
                         p.Id,
                         Fine = new {
+                            p.Fine.Id,
+                            p.Fine.Category,
+                            p.Fine.Article,
+                            p.Fine.Conduct,
+                            p.Fine.Estado,
+                            p.Fine.Amount,
+                        },
+                        p.Amount,
+                        p.PaymentMethod,
+                        p.PaymentDate,
+
+                    })
+                    .ToListAsync();
+
+                // Verificar si el usuario tiene multas
+                if (!payments.Any())
+                {
+                    return NotFound("No se encontraron pagos.");
+                }
+
+                return Ok(payments);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores que puedan ocurrir durante la consulta
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        // Get All Payments. 
+        [HttpGet("get-all-payments")]
+        public async Task<IActionResult> GetAllPayments()
+        {
+
+            try
+            {
+                // Obtener todas las multas asociadas al usuario
+                var payments = await _context.Payments
+                    .Select(p => new
+                    {
+                        p.Id,
+                        Fine = new
+                        {
                             p.Fine.Id,
                             p.Fine.Category,
                             p.Fine.Article,

@@ -1,4 +1,5 @@
 ﻿using BL.IServices;
+using DataAccess.EF;
 using DataAccess.EF.Models;
 using DTOs;
 using Microsoft.AspNetCore.Authorization;
@@ -20,16 +21,17 @@ namespace API_Practica_1.Controllers
         private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ClaseDbContext _context;
 
-        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, IEmailService emailService, RoleManager<IdentityRole> roleManager)
+        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, IEmailService emailService, RoleManager<IdentityRole> roleManager, ClaseDbContext context)
         {
             _userManager = userManager;
             _configuration = configuration;            
             _emailService = emailService;
             _roleManager = roleManager;
+            _context = context;
         }
 
-        [HttpPost]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto userData)
         {
@@ -108,36 +110,94 @@ namespace API_Practica_1.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Register([FromBody] LogUpDto newUser)
+        public async Task<IActionResult> Register([FromForm] LogUpDto newUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            byte[] profilePictureBytes = null;
+            byte[] documentPictureBytes = null;
+            try
+            {
+                // Procesar la foto de perfil
+                if (newUser.ProfilePicture != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await newUser.ProfilePicture.CopyToAsync(memoryStream);
+                        profilePictureBytes = memoryStream.ToArray();
+                    }
+                }
+                // Procesar la foto de cédula
+                if (newUser.DocumentPicture != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await newUser.DocumentPicture.CopyToAsync(memoryStream);
+                        documentPictureBytes = memoryStream.ToArray();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al procesar las imágenes: {ex.Message}");
+            }
+            // Crear el usuario
             var user = new ApplicationUser
             {
                 UserName = newUser.UserName,
                 Email = newUser.Email,
                 FirstName = newUser.FirstName,
                 LastName = newUser.LastName,
-                IdDocument = newUser.IdDocument
+                IdDocument = newUser.IdDocument,
+                ProfilePicture = profilePictureBytes,
+                DocumentPicture = documentPictureBytes
             };
-
             var createdUserResult = await _userManager.CreateAsync(user, newUser.Password);
-
             if (createdUserResult.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, "User");
-                return Created("Usuario creado exitosamente", null);
+                return Created("Usuario creado exitosamente", new
+                {
+                    user.UserName,
+                    user.Email
+                });
             }
-
             foreach (var error in createdUserResult.Errors)
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }
-
             return BadRequest(ModelState);
+        }
+
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile([FromQuery] string userin)
+        {
+            if (string.IsNullOrEmpty(userin))
+            {
+                return BadRequest("El parámetro 'userin' es requerido.");
+            }
+            var user = await _userManager.FindByNameAsync(userin);
+            if (user == null)
+            {
+                return NotFound("Usuario no encontrado.");
+            }
+            var applicationUser = user as ApplicationUser;
+            if (applicationUser == null)
+            {
+                return NotFound("Usuario no es del tipo esperado.");
+            }
+            return Ok(new
+            {
+                applicationUser.FirstName,
+                applicationUser.LastName,
+                applicationUser.IdDocument,
+                ProfilePicture = applicationUser.ProfilePicture != null ?
+                Convert.ToBase64String(applicationUser.ProfilePicture) : null,
+                DocumentPicture = applicationUser.DocumentPicture != null ?
+                Convert.ToBase64String(applicationUser.DocumentPicture) : null
+            });
         }
 
         [HttpPost]
@@ -313,6 +373,8 @@ namespace API_Practica_1.Controllers
                     // Fetch the user by ID
                     var user = await _userManager.FindByIdAsync(userId);
 
+                    var applicationUser = user as ApplicationUser;
+
                     if (user != null)
                     {
                         var roles = await _userManager.GetRolesAsync(user); // Get roles of the user
@@ -321,10 +383,11 @@ namespace API_Practica_1.Controllers
                         {
                             filteredUsers.Add(new
                             {
+                                applicationUser.FirstName,
+                                applicationUser.LastName,
                                 user.UserName,
                                 user.Email,
-                                //user.FirstName, // Accessing custom properties
-                                //user.LastName,
+                                applicationUser.IdDocument,
                                 Role = roles
                             });
                         }
@@ -345,8 +408,5 @@ namespace API_Practica_1.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-
     }
-
 }

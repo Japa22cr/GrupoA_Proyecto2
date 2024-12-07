@@ -8,7 +8,7 @@ namespace DTOs
 {
     public class VehicleDto
     {
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         public string Marca { get; set; } 
         public int CantidadPuertas { get; set; } 
         public string Color { get; set; } 

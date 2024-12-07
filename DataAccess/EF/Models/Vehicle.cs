@@ -12,7 +12,7 @@ namespace DataAccess.EF.Models
     {
         public int Id { get; set; }
 
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         public string Marca { get; set; }
         public int CantidadPuertas { get; set; }
         public string Color { get; set; }
@@ -22,7 +22,7 @@ namespace DataAccess.EF.Models
         public string TipoVehiculo { get; set; }
 
         // Foreign key to ApplicationUser
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
     }

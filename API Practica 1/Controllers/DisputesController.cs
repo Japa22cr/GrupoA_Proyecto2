@@ -64,8 +64,8 @@ namespace API_Practica_1.Controllers
 
                 await _context.SaveChangesAsync();
 
-                // Send confirmation email
-                //await _emailService.SendConfirmationEmailAsync(user.UserEmail, fine, payment);
+                // Send confirmation email of the dispute to the user
+                await _emailService.SendDisputeConfirmationEmail(user.Email, dispute, fine);
 
                 return Ok(new { Message = "Fine disputed successfully." });
             }
@@ -80,8 +80,8 @@ namespace API_Practica_1.Controllers
         public async Task<IActionResult> HandleDispute([FromBody] HandleDisputeDto model)
         {
 
-            try
-            {
+            try { 
+
                 var dispute = await _context.Disputes
                    .Include(d => d.Fine)
                    .Include(d => d.User)
@@ -107,9 +107,11 @@ namespace API_Practica_1.Controllers
                 _context.Disputes.Update(dispute);
                 await _context.SaveChangesAsync();
 
+                // Send confirmation email of the dispute resolution officer
+                await _emailService.SendDisputeResolutionOfficer(dispute.User.UserName, dispute);
 
-                // Send confirmation email
-                //await _emailService.SendConfirmationEmailAsync(user.UserEmail, fine, payment);
+                // Send confirmation email of the dispute resolution user
+                await _emailService.SendDisputeResolutionUser(dispute.User.UserName, dispute);
 
                 return Ok(new { Message = "Fine disputed successfully." });
             }
@@ -120,8 +122,76 @@ namespace API_Practica_1.Controllers
 
         }
 
-        // Get All Disputes
+        // Get Disputes by user
         [HttpGet]
+        public async Task<IActionResult> GetDisputesUser(string userin)
+        {
+            // Validar el parámetro de correo electrónico
+            if (string.IsNullOrEmpty(userin))
+            {
+                return BadRequest("El usuario es requerido.");
+            }
+
+            // Buscar al usuario por correo electrónico
+            var user = await _userManager.FindByNameAsync(userin);
+            if (user == null)
+            {
+                return NotFound("No se ha encontrado un usuario.");
+            }
+
+            try
+            {
+                // Obtener todas las multas asociadas al usuario
+                var disputes = await _context.Disputes
+                    .Select(d => new
+                    {
+                        d.Id,
+                        Fine = new
+                        {
+                            d.Fine.Id,
+                            d.Fine.Category,
+                            d.Fine.Article,
+                            d.Fine.Conduct,
+                            d.Fine.Estado,
+                            d.Fine.Amount,
+                        },
+                        d.CreatedDate,
+                        d.Reason,
+                        User = new
+                        {
+                            d.User.Id,
+                            d.User.UserName,
+                            d.User.Email
+                        },
+                        d.IsResolved,
+                        Judge = new
+                        {
+                            d.Judge.Id,
+                            d.Judge.UserName,
+                            d.Judge.Email
+                        },
+                        d.Resolution,
+                        d.ResolutionDate
+                    })
+                    .ToListAsync();
+
+                // Verificar si el usuario tiene multas
+                if (!disputes.Any())
+                {
+                    return NotFound("No se encuentraron ninguna disputa.");
+                }
+
+                return Ok(disputes);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores que puedan ocurrir durante la consulta
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        // Get All Disputes
+        [HttpGet("get-all-disputes")]
         public async Task<IActionResult> GetAllDisputes()
         {
             try
